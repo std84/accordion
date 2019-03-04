@@ -1,0 +1,49 @@
+
+    <div class="wrapper">
+
+        
+        <div class="half">
+           
+          <div class="tab" *ngFor="let item of items; index as i">
+            <input id="tab-{{i+1}}" type="checkbox" name="tabs">
+            <label for="tab-{{i+1}}">{{i+1}} {{item.title}}</label>
+            <div class="tab-content" *ngFor="let subitem of items  index as j">
+              <div class="row">
+                <div class="col-md-12">{{subitem.title}}</div>
+              </div>
+              <form [formGroup]="registerFormtwo[j]" (ngSubmit)="register()">
+              <div class="row">
+                  <div class="col-md-3">
+                    <input type="text"   [ngClass]="{ 'is-invalid':   registerFormtwo[j].get('min').errors && registerFormtwo[j].get('min').touched 
+                    || registerFormtwo[j].hasError('mismatch') && registerFormtwo[j].get('min').touched   }"
+                    class="form-control"   formControlName="min"  placeholder="min">
+                    <div class="invalid-feedback" *ngIf="registerFormtwo[j].get('min').hasError('required') && registerFormtwo[j].get('min').touched 
+                    "> min error</div>
+                    <div class="invalid-feedback" *ngIf=" registerFormtwo[j].hasError('mismatch') && registerFormtwo[j].get('min').touched "> min higher erro</div>
+                  </div>
+                  <div class="col-md-3">
+                      <input type="text"  [ngClass]="{ 'is-invalid':  registerFormtwo[j].get('max').errors  && registerFormtwo[j].get('max').touched 
+                      || registerFormtwo[j].hasError('mismatch') && registerFormtwo[j].get('max').touched }"
+                      class="form-control"   formControlName="max"  placeholder="max">
+                      <div class="invalid-feedback" *ngIf="registerFormtwo[j].get('max').hasError('required') && registerFormtwo[j].get('max').touched 
+                       "> max error</div>
+                       <div class="invalid-feedback" *ngIf=" registerFormtwo[j].hasError('mismatch') && registerFormtwo[j].get('max').touched "> max higher erro</div>
+                  </div>
+                  <div class="col-md-3">
+                        <input type="text"  [ngClass]="{ 'is-invalid': registerFormtwo[j].get('avarege').errors  && registerFormtwo[j].get('avarege').touched  }"
+                        class="form-control"   formControlName="avarege"  placeholder="avarege">
+                  </div>
+                  <div class="col-md-3">
+                        <div class="btn btn-default">send</div>
+                  </div>
+              </div>
+            </form>
+            </div>
+          </div>
+
+        </div>
+        
+    
+      </div>
+      <p> form value: {{registerForm.value | json}}</p>
+      <p> form value: {{registerForm.status | json}}</p>
