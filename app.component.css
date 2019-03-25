@@ -1,0 +1,6 @@
+.tabs{
+
+}
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li{       
+    color:green !important; 
+}
