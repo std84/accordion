@@ -1,5 +1,12 @@
-<div class="ui-g">
-    <div class="ui-g-4">Col1</div>
-    <div class="ui-g-4">Col2</div>
-    <div class="ui-g-4">Col3</div>
+<form   #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="Login()">
+  <div  *ngFor="let item of fields; let i = index" style="padding:10px"> 
+    <app-farmitems [item]="item"></app-farmitems>
+
+  </div>
+  <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+</form>
+<div>
+    A div for {{name}}.
+    <button type="button" (click)="showModal()">Rename</button>
+    <app-modal *ngIf="showIt" [oldname]="name" (close)="closeModal($event)"></app-modal>
 </div>

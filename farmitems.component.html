@@ -1,0 +1,10 @@
+{{item.Description}} 
+<br/>
+{{item.priceAmindis}}  {{item.PriceAAvgdis}}
+  {{item.priceAmaxdis}}
+    <input class="form-control mr-sm-2" (change)="checkminmax(item)" [disabled]="item.priceAmaxdis" id="PriceAMax_{{i}}"   type="text" placeholder="PriceAMax" name="PriceAMax" 
+    required [(ngModel)]="item.PriceAMax" >
+    <input class="form-control mr-sm-2" (change)="checkminmax(item)"  [disabled]="item.priceAmindis" id="PriceAMin_{{i}}" type="text" placeholder="PriceAMin" name="PriceAMin" 
+    required [(ngModel)]="item.PriceAMin" >
+    <input class="form-control mr-sm-2" (change)="checkavg(item)"  [disabled]="item.PriceAvgdis"  id="PriceAAvg_{{i}}"  type="text" placeholder="PriceAAvg" name="PriceAAvg" 
+    required [(ngModel)]="item.PriceAAvg" >
